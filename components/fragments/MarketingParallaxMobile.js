@@ -4,7 +4,7 @@ import {Slide} from 'react-reveal';
 
 
 
-export default function MarketingDigitalParallax(){
+export default function MarketingDigitalMobile(){
 
 return (
 
@@ -20,12 +20,12 @@ renderLayer={(percentage) => (
     style={{
       position: "absolute",
       background: `rgba(104, 4, 110, 0.7)`,
-      left: "-65%",
-      top: "50%",
+      left: "-58%",
+      top: "30%",
      
       transform: "translate(0%,-50%)",
-      width: percentage * 2600,
-      height: percentage * 2600
+      width: percentage * 1600,
+      height: percentage * 1600
     }}
   />
  
@@ -47,11 +47,11 @@ renderLayer={(percentage) => (
  <style jsx>{`
  .marketing_digital_small{
      display:flex;
-     flex-flow:column wrap;
+     flex-flow:column nowrap;
      align-items: center;
      color:white;
-     margin-top:2rem;
-     min-height :25rem;
+     margin-top:1rem;
+     width:100%;
 
   
  }
@@ -60,11 +60,14 @@ renderLayer={(percentage) => (
  }
  .marketing_digital_small_text h1{
      text-align:center;
-     font-size:3rem;
+     font-size:2rem;
+     line-spacing:1rem;
  }
  .marketing_digital_small_text h6{
     text-align:center;
     font-size:1rem;
+    padding:0px 0.4rem;
+    line-spacing:1rem;
 }
 .marketing_digital_small_text span{
  color:black
@@ -73,7 +76,7 @@ renderLayer={(percentage) => (
  .marketing_digital_container{
      display:flex;
      flex-flow:column wrap;
-     max-height :25rem;
+     
     
 
  }

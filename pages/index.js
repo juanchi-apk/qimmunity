@@ -1,17 +1,20 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import DesktopHome from '../components/Home/Home';
+import dynamic from 'next/dynamic'
+import isMobile from '../lib/isMobile'
+
+const DesktopMobile = dynamic(()=>import('../components/Home/HomeMobile'));
+const DesktopHome = dynamic(()=>import('../components/Home/Home'));
 
 
 export default function Home() {
+  const isThisMobile = isMobile()
+
   return (
    
-      <div style={{display:"flex", flexFlow:"column nowrap", marginTop:"60px"}}>  
-      <DesktopHome/>
-      <p>capaz que acas di</p>
-      
-
-      </div>
+    <div style={{marginTop:"55px"}}>
+    {isThisMobile? <DesktopMobile/> :<DesktopHome/>}
+    </div>
   )
 }
 

@@ -117,7 +117,7 @@ export default function UserForm() {
 
 
               .signupSection {
-                  width: 100vw;
+                  width: 100%;
                   text-align: center;
                   display: flex;
                   color: #2c2c2c;
