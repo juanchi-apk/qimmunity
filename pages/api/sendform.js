@@ -6,7 +6,7 @@ export default async function(req, res) {
 
   
 
-  const transporter =  nodemailer.createTransport({
+  const transporter = await nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure:true,
@@ -15,7 +15,7 @@ export default async function(req, res) {
       pass:process.env.PASS
     }
   })
-
+s
 
   try {
     const newEmail = await transporter.sendMail({
