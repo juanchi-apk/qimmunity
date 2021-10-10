@@ -6,7 +6,7 @@ export default async function(req, res) {
 
   
 
-  const transporter = await nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure:true,
@@ -15,10 +15,20 @@ export default async function(req, res) {
       pass:process.env.PASS
     }
   })
-s
 
-  try {
-    const newEmail = await transporter.sendMail({
+    await new Promise((resolve, reject)=>{
+      transporter.verify(function (error, success) {
+        if (error) {
+            console.log(error);
+            reject(error);
+        } else {
+            console.log("The server is ready");
+            resolve(success);
+        }
+    });
+    })
+
+    const maildata= {
       from: `${email}`, 
       to:'juanmanuelotero83@gmail.com',
       subject:`Un nuevo mensaje de ${name}`,
@@ -28,18 +38,21 @@ s
             <p>${message}</p>
  
       `
-    });
-    
-    console.log("Message sent: %s", newEmail.messageId)
 
+    }
 
-  } catch (error) {
-    console.log(error)
-  }
-
-
-
-
-
-  res.status(200).send("ok");
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(maildata, (err, info) => {
+          if (err) {
+              console.error(err);
+              reject(err);
+          } else {
+              console.log(info);
+              resolve(info);
+          }
+      });
+  });
+  
+  res.status(200).json({ status: "OK" });
 }

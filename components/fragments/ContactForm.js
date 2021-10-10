@@ -9,7 +9,7 @@ import axios from 'axios';
 export default function UserForm() {
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const onSubmit =async (data) => {
+    const onSubmit = async (data) => {
         let configPost = {
             method:"post",
             url:`api/sendform`,
