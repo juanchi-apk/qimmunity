@@ -10,7 +10,7 @@ export default function UserForm() {
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const onSubmit =async (data) => {
-      /*   let configPost = {
+        let configPost = {
             method:"post",
             url:`api/sendform`,
             headers:{
@@ -21,12 +21,13 @@ export default function UserForm() {
         };
         try {
             const response = await axios (configPost);
+            console.log(response)
           
             
         } catch (error) {
             console.log(error, "hubo un error")
-        } */
-    console.log(data)
+        }
+  
     };
 
 
