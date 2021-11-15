@@ -17,7 +17,8 @@ const StyledNavbar = withStyles({
 const StyledLink = withStyles({
   root: {
     color: '#fcfcfc',
-    margin:"20px",
+    marginLeft:"20px",
+    maxWidth: "100vw",
 
     '&:hover' :{  
       color: "#42f934",
@@ -31,7 +32,7 @@ const StyledLink = withStyles({
   },
 })(Link);
 
- const NavbarDesktop = ()=>{
+ const NavbarDesktop = ({navbar})=>{
 
  return(
 
@@ -42,6 +43,14 @@ const StyledLink = withStyles({
             <Typography variant = "subheading" color="inherit" >
               <StyledLink href="/" >QIMMUNITY</StyledLink>
             </Typography>
+            {
+              navbar.map(item => {
+                return(
+            <Typography variant = "subheading" color="inherit" >
+            <StyledLink href= {`/[${item.title}]`} >{item.title.toUpperCase()} </StyledLink>
+            </Typography>
+                )}
+            )}
             <Typography variant = "subheading" color="inherit" >
               <StyledLink href="/news" >TENDENCIAS</StyledLink>
             </Typography>

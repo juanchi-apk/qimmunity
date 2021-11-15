@@ -24,8 +24,8 @@ renderLayer={(percentage) => (
       top: "50%",
      
       transform: "translate(0%,-50%)",
-      width: percentage * 2600,
-      height: percentage * 2600
+      width: percentage * 3600,
+      height: percentage * 3600
     }}
   />
  

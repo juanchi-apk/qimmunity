@@ -3,16 +3,21 @@ import BgCommunity from '../../public/community.png';
 import { Parallax } from "react-parallax";
 import { Slide } from 'react-reveal';
 import {Button}from '@mui/material'
+import Link from 'next/link';
+import {getStrapiMedia} from '../../pages/api/images_media';
 
 
-export default function MediaParallax(){
 
+export default function ProdParallax({title, cta , boxTitle, boxCta,prodImage,link}){
+const mediasrc= getStrapiMedia(prodImage);
+
+    
     return(
 
 <div className ="otrocontainer">
 
 <Parallax
-bgImage={BgCommunity.src}
+bgImage={mediasrc}
 strength={300}
 style={{
 padding:'0px',
@@ -21,19 +26,19 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 
 >
 
-<div className="socialSlideContainer">
+<div className="prodParallax_Container">
     <Slide ssrReveal left>
-    <div className="socialTitle">
-    <h1>Social Media</h1>
-    <h2>Potencia tus redes sociales</h2>
+    <div className="prodParallax_title">
+    <h1>{title}</h1>
+    <h2>{cta}</h2>
     </div>
     </Slide>
 
-<div className ="comingup">
-<div className = "anothertext">
-<h1>¿Queres aumentar tus seguidores y conseguir mas ventas?</h1>
-<p>Entonces necesitas conocer muy bien tu público, y lograr interaccion con tus publicaciones. Hace click y conocé todos nuestros planes para potenciar tu empresa!</p>
-<Button variant="outlined">Ver mas</Button>
+<div className ="prodParallax_drawer">
+<div className = "prodParallax_drawer_text">
+<h1>{boxTitle}</h1>
+<p>{boxCta}</p>
+<Link href={`/[${link}]`}><Button variant="outlined">Ver mas</Button></Link>
 
 </div>
 </div>
@@ -43,31 +48,32 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 
 <style jsx>{`
 
-.socialSlideContainer{
+.prodParallax_Container{
     display:flex;
     flex-direction:row;
     flex-wrap:no-wrap;
     width:175%;
+    overflow:hidden;
 
 
 }
 
-.socialTitle{
+.prodParallax_title{
     min-width:15%;
     color:#ffee10   ;
     margin-left:3rem;
 }
 
-.socialTitle h1{
+.prodParallax_title h1{
     font-size: 3rem;
 }
 
-.social_textcontainer{
+.prodParallax_textcontainer{
     box-sizing:border-box;
     }
     
     
-    .comingup{
+    .prodParallax_drawer{
     box-sizing:border-box;
     position:relative;
     left:0;
@@ -81,10 +87,10 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
     
     }
     
-    .comingup:hover{
+    .prodParallax_drawer:hover{
     left:-42%;
     }
-    .anothertext {
+    .prodParallax_drawer_text {
         display:flex;
         flex-direction:column;
         color:white;

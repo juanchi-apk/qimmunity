@@ -10,44 +10,44 @@ import { Paper } from '@mui/material';
 
 
 
- export default function BannerDesktop({banner, bannerImages}){
-    const mainbanner= banner[0];
- 
+ export default function BannerDesktop({color, title, titlesmall, text, image}){
+    
+
+
      return (
-         <Fade ssrReveal duration={1500}>
-             <Paper className="carmenquepaso" square>
-          
+         <Fade ssrReveal duration={1500} style = {{margin:"0px"}}>
+             <Paper style={{backgroundColor:`${color}`, margin:"0px" , padding: "0px" ,maxWidth: "100%" }} square>
+         
              
              
              <div className='titles'>
              <Slide ssrReveal duration={1500} left>
              <div className='textito'>
-                 <h1>{mainbanner.banner_title}</h1>
-                 <h3 >{mainbanner.banner_small_title}</h3>
-                 <p>{mainbanner.banner_text}</p>
+                 <h1>{title}</h1>
+                 <h3>{titlesmall}</h3>
+                 <p>{text}</p>
              </div>
              </Slide>
              <Slide ssrReveal  duration={1500} up>
              <div className="BannerImageContainer"> 
-             <Image layout="fixed" width = "280vw" height="420vw" src={bannerImages}/>
+             <Image layout="fixed" width = "350rem" height="350rem" src= {image}/>
              </div>
              </Slide>
              </div>
         
          <style jsx>{`
-         .carmenquepaso{
-            background-color: #e80355
-        }
+}
 
      .titles {
-        min-height: 25rem;
+        
          display:flex;
          flex-direction:row;
-         flex-wrap: wrap;
+         flex-wrap: no-wrap;
          z-index:2;
          color:#fff;
          justify-content: space-between;
-         background-color: ${mainbanner.banner_hexcolor};
+         max-width:100%;
+         min-height: 25rem;
 
      }
      .textito{
@@ -58,7 +58,7 @@ import { Paper } from '@mui/material';
          align-items:flex-start;
          margin-left:10%;
          max-width:40%;
-         min-width:10rem;
+         min-width:8rem;
          min-heigt:20rem;
                     
      }
@@ -68,15 +68,13 @@ import { Paper } from '@mui/material';
 
          
      }
-     .textito span{
-         color:  #E8D91A
-     }
+    
      .BannerImageContainer{
          display:flex;
+         flex-wrap:wrap;
          justify-content:center;
-         margin-right:5%;
          z-index:10;
-      max-height: 40em;       
+         max-height: 40rem;       
      }
      `}</style>
 

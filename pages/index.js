@@ -2,20 +2,46 @@ import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import isMobile from '../lib/isMobile'
+import { fetchStrapi } from './api/hidratation'
+import {getStrapiMedia} from "./api/images_media";
 
-const DesktopMobile = dynamic(()=>import('../components/Home/HomeMobile'));
+
+
+const MobileHome = dynamic(()=>import('../components/Home/HomeMobile'));
 const DesktopHome = dynamic(()=>import('../components/Home/Home'));
 
 
-export default function Home() {
+export default function Home({home, bannerImages, prodCards}) {
   const isThisMobile = isMobile()
 
   return (
    
     <div style={{marginTop:"55px"}}>
-    {isThisMobile? <DesktopMobile/> :<DesktopHome/>}
+    {isThisMobile
+    ? <MobileHome home={home} bannerImages={bannerImages[1]} prodCards={prodCards}/> 
+    :<DesktopHome home={home} bannerImages={bannerImages[0]} prodCards={prodCards}/>}
     </div>
-  )
+  )   
+}
+
+export async function getServerSideProps(){
+  const home = await fetchStrapi("/home");
+
+  const images = home.home_carousel[0].banner_image;
+console.log(images)
+  const bannerImages = images.map(image=> getStrapiMedia(image));
+  const prodCardItems = await fetchStrapi("/product-cards");
+
+
+    return{
+    props:{
+      home, 
+      bannerImages, 
+      prodCards : prodCardItems[0].Product
+      
+    },
+    
+ };
 }
 
 

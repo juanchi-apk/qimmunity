@@ -53,9 +53,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 
-export default function NavbarMovile() {
+export default function NavbarMovile({navbar}) {
+
+  const menu = ['Home'];
+  navbar.map(item=> menu.push(item.title));
+  menu.push("tendencias", "datita" )
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -89,8 +94,8 @@ export default function NavbarMovile() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Home', 'Tendencias','Datita'].map((text, index) => (
-            <ListItem button key={text}>
+          {menu.map((text, index) => (
+            <ListItem button key={text.toUpperCase()}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>

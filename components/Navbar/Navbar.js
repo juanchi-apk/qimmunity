@@ -7,7 +7,7 @@ const Desktop = dynamic(()=>import('../fragments/NavbarDesktop'))
 
 
 
-const Navbar = ()=>{
+const Navbar = ({navbar})=>{
 
     
     const isThisMobile = isMobile()
@@ -16,7 +16,7 @@ const Navbar = ()=>{
     return(
         <div>
 
-            {isThisMobile? <Mobile/> :<Desktop/>}
+            {isThisMobile? <Mobile navbar={navbar}/> :<Desktop navbar={navbar}/>}
         </div>
     )
 }

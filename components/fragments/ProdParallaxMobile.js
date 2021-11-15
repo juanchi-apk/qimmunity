@@ -1,18 +1,19 @@
 
-import BgCommunity from '../../public/community.png';
 import { Parallax } from "react-parallax";
 import { Slide } from 'react-reveal';
 import {Button}from '@mui/material'
+import {getStrapiMedia} from '../../pages/api/images_media';
+import Link from 'next/link';
 
 
-export default function MediaParallax(){
-
+export default function ProdParallaxMobile({title, cta , boxTitle, boxCta,prodImage,link}){
+    const mediasrc= getStrapiMedia(prodImage);
     return(
 
 <div className ="otrocontainer">
 
 <Parallax
-bgImage={BgCommunity.src}
+bgImage={mediasrc}
 strength={300}
 style={{
 padding:'0px',
@@ -21,25 +22,25 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 
 >
 
-<div className="socialSlideContainer">
+<div className="mobile_parallax_container">
     <Slide ssrReveal left>
-    <div className="socialTitle">
-    <h1>Social Media</h1>
-    <h2>Potencia tus redes sociales</h2>
+    <div className="mobile_parallax_title">
+    <h1>{title}</h1>
+    <h2>{cta}</h2>
     </div>
     </Slide>
 
 
-<p className="socialCTA">Para aumentar tus seguidores y conseguir mas ventas, necesitas conocer muy bien tu público, y lograr interaccion con tus publicaciones. Hace click y conocé todos nuestros planes para potenciar tu empresa!</p>
+<p className="mobile_parallax_CTA">{boxCta}</p>
 
-<span className="socialButton"><Button variant="outlined">Ver mas</Button></span>
+<span className="mobile_parallax_button"><Link href={`/[${link}]`}><Button variant="outlined">Ver mas</Button></Link></span>
 
 </div>
 </Parallax>
 
 <style jsx>{`
 
-.socialSlideContainer{
+.mobile_parallax_container{
     display:flex;
     flex-direction:column;
     flex-wrap:no-wrap;
@@ -51,31 +52,31 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 
 }
 
-.socialTitle{
+.mobile_parallax_title{
     min-width:15%;
     color:#ffee10;
     padding-left: 1rem;
     padding-right:1rem;
 }
 
-.socialTitle h1{
+.mobile_parallax_title h1{
     font-size: 2.5rem;
-    line-height: 1.5rem   ;
+    line-height: 2rem   ;
 
 
 }
-.socialTitle h2{
+.mobile_parallax_title h2{
     font-size: 1rem;
     line-height: 1rem ;
 }
 
-.socialCTA{
+.mobile_parallax_CTA{
     padding-left: 1rem;
     padding-right:1rem;
     color:white;
 }
 
-.socialButton{
+.mobile_parallax_button{
 text-align:center;
 margin-bottom:2rem;
 }
