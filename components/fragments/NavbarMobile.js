@@ -17,6 +17,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import {Link as Muilink} from '@mui/material';
+import NextLink from "next/link";
 
 const drawerWidth = 240;
 const AppBar = styled(MuiAppBar, {
@@ -55,9 +57,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function NavbarMovile({navbar}) {
 
-  const menu = ['Home'];
+  const menu = [];
   navbar.map(item=> menu.push(item.title));
-  menu.push("tendencias", "datita" )
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -72,6 +73,7 @@ export default function NavbarMovile({navbar}) {
 
 
   return (
+
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
         
@@ -94,14 +96,51 @@ export default function NavbarMovile({navbar}) {
         </DrawerHeader>
         <Divider />
         <List>
-          {menu.map((text, index) => (
+        <ListItem button key="HOME">
+              <NextLink href="/">
+              <Muilink>
+              <ListItemIcon>
+                {<MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary="HOME" />
+              </Muilink>
+              </NextLink>
+            </ListItem>
+          {menu.map((text, index) => {
+            return(
             <ListItem button key={text.toUpperCase()}>
+              <NextLink href={`/[${text}]`}>
+              <Muilink>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={text.toUpperCase()} />
+              </Muilink>
+              </NextLink>
             </ListItem>
-          ))}
+          )
+        })}
+          <ListItem button key="DATITA">
+          <NextLink href="/datita">
+          <Muilink>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary="DATITA" />
+          </Muilink>
+          </NextLink>
+        </ListItem>
+         <ListItem button key="TENDENCIAS">
+         <NextLink href="/tendencias">
+         <Muilink>
+         <ListItemIcon>
+           <MailIcon />
+         </ListItemIcon>
+         <ListItemText primary="TENDENCIAS"/>
+         </Muilink>
+         </NextLink>
+       </ListItem>
+          
         </List>
        
       </Drawer>
@@ -122,5 +161,6 @@ export default function NavbarMovile({navbar}) {
         </Toolbar>
       </AppBar> 
     </Box>
+
   );
 }

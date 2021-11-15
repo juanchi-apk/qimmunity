@@ -52,10 +52,10 @@ const StyledLink = withStyles({
                 )}
             )}
             <Typography variant = "subheading" color="inherit" >
-              <StyledLink href="/news" >TENDENCIAS</StyledLink>
+              <StyledLink href="/tendencias" >TENDENCIAS</StyledLink>
             </Typography>
             <Typography variant = "subheading" color="inherit" >
-              <StyledLink href="/curso" >DATITA</StyledLink>
+              <StyledLink href="/datita" >DATITA</StyledLink>
             </Typography>
           </Toolbar>
       </StyledNavbar  >
