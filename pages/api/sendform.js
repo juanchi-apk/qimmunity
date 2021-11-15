@@ -11,8 +11,8 @@ export default async function(req, res) {
     port: 465,
     secure:true,
     auth:{
-      user:process.env.MAILUSER,
-      pass:process.env.PASS
+      user:env.MAILUSER,
+      pass:env.PASS
     }
   })
 
