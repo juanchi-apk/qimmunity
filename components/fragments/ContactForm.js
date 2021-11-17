@@ -3,13 +3,15 @@ import Fade from 'react-reveal/Fade';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
 
 export default function UserForm() {
 
-    const { register, handleSubmit, watch, formState: { errors , isSubmitted,  isSubmitSuccessful}, reset } = useForm();
+    const { register, handleSubmit, watch, formState: { errors , isSubmitted, isSubmitting ,  isSubmitSuccessful}, reset } = useForm();
     const onSubmit = async (data) => {
         let configPost = {
             method:"post",
@@ -36,7 +38,7 @@ export default function UserForm() {
             <Fade duration={2000} left>
                 <form className="signupForm" name="signupform" onSubmit={handleSubmit(onSubmit)}>
                     <h2>CONTACTO</h2>
-                    {!isSubmitted && (<ul className="noBullet">
+                    { (!isSubmitting&&!isSubmitted) && (<ul className="noBullet">
     <li>
                             <label htmlFor="name"></label>
                             <input
@@ -110,13 +112,17 @@ export default function UserForm() {
                             <input type="submit" id="join-btn" name="join" alt="Join" value="ENVIAR" />
                         </li>
                     </ul>)}
-                    {/* {isSubmitSuccessful && ( */}
+                    {isSubmitting && (
+                        <CircularProgress size ="10rem" color="success" />
+
+                    ) }
+                     {isSubmitSuccessful && (<div>salio todo bien</div>)}
                     
-                    <div>salio todo bien</div>
                     
                     
                     
-                    {/* ) } */}
+                    
+                  
                 </form>
             </Fade>
             <style jsx>{`
@@ -148,7 +154,10 @@ export default function UserForm() {
                 
                 .signupForm h2{
                     text-align: center;
-                }
+                    font-size: 3em;
+                    font-family: 'Exo 2', sans-serif;
+                    
+                }   
                 
                 .inputFields {
                  

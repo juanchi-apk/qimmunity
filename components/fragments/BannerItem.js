@@ -23,7 +23,7 @@ import { Paper } from '@mui/material';
              <div className='titles'>
              <Slide ssrReveal duration={1500} left>
              <div className='textito'>
-                 <h1>{title}</h1>
+                 <h1>{title.toUpperCase()}</h1>
                  <h3>{titlesmall}</h3>
                  <p>{text}</p>
              </div>
@@ -36,7 +36,7 @@ import { Paper } from '@mui/material';
              </div>
         
          <style jsx>{`
-}
+
 
      .titles {
         
@@ -65,7 +65,7 @@ import { Paper } from '@mui/material';
      .textito h1{
          font-size:3rem;
          line-height: 40px;
-
+         font-family: 'Exo 2', sans-serif;
          
      }
     

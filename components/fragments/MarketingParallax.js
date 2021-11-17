@@ -35,7 +35,7 @@ renderLayer={(percentage) => (
 
 <div className ="marketing_digital_small">
 <div className = "marketing_digital_small_text">
-  <h1>¿Para qué sirve el Marketing Digital? </h1>    
+  <h1>{"¿Para qué sirve el Marketing Digital?".toUpperCase()}</h1>    
   <Slide ssrReveal left>
   <h6>Llevar el producto a tu <span> audiencia queirda</span> es un proceso que se vuelve cada día mas exigente y mas dinámico. Una buena estrategia de <span>marketing digital</span>, te permite llegar más rápido y de forma mas eficiente a tu target de mercado , en todos los <span>micromomentos de consumo</span></h6>
   </Slide>
@@ -61,6 +61,7 @@ renderLayer={(percentage) => (
  .marketing_digital_small_text h1{
      text-align:center;
      font-size:3rem;
+     font-family: 'Exo 2', sans-serif;
  }
  .marketing_digital_small_text h6{
     text-align:center;

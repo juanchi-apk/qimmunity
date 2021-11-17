@@ -16,7 +16,7 @@ export default function SocialReasonBox({mediareasonitems, reasonCTA}) {
                     <div className="socialReasonCTA">
 
                         <p>
-                            {reasonCTA}
+                            {reasonCTA.toUpperCase()}
                         </p>
                     </div >
                     <div className="reasonContainers">
@@ -54,6 +54,7 @@ export default function SocialReasonBox({mediareasonitems, reasonCTA}) {
                 padding:2%;
                 max-width:30%;
                 min-widht:200px;
+                font-family: 'Exo 2', sans-serif;
              
                
 

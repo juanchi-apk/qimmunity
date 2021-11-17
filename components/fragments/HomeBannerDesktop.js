@@ -22,7 +22,7 @@ import { Paper } from '@mui/material';
              <div className='titles'>
              <Slide ssrReveal duration={1500} left>
              <div className='textito'>
-                 <h1>{mainbanner.banner_title}</h1>
+                 <h1>{mainbanner.banner_title.toUpperCase()}</h1>
                  <h3 >{mainbanner.banner_small_title}</h3>
                  <p>{mainbanner.banner_text}</p>
              </div>
@@ -35,6 +35,8 @@ import { Paper } from '@mui/material';
              </div>
         
          <style jsx>{`
+
+
          .carmenquepaso{
             background-color: #e80355
         }
@@ -65,6 +67,7 @@ import { Paper } from '@mui/material';
      .textito h1{
          font-size:3rem;
          line-height: 40px;
+         font-family: 'Exo 2', sans-serif;      
 
          
      }

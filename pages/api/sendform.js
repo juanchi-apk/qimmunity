@@ -48,7 +48,7 @@ export default async function(req, res) {
               console.error(err);
               reject(err);
           } else {
-              console.log(info);
+           
               resolve(info);
           }
       });

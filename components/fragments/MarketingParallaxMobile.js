@@ -62,6 +62,7 @@ renderLayer={(percentage) => (
      text-align:center;
      font-size:2rem;
      line-spacing:1rem;
+     font-family: 'Exo 2', sans-serif;
  }
  .marketing_digital_small_text h6{
     text-align:center;

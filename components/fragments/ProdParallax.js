@@ -29,7 +29,7 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 <div className="prodParallax_Container">
     <Slide ssrReveal left>
     <div className="prodParallax_title">
-    <h1>{title}</h1>
+    <h1>{title.toUpperCase()}</h1>
     <h2>{cta}</h2>
     </div>
     </Slide>
@@ -66,6 +66,7 @@ bgImageStyle={{opacity: '.9', filter :"blur(0.3rem)"}}
 
 .prodParallax_title h1{
     font-size: 3rem;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .prodParallax_textcontainer{
