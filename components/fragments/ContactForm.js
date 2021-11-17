@@ -1,5 +1,6 @@
 
 import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import React from 'react';
@@ -35,11 +36,12 @@ export default function UserForm() {
 
     return (
     <div className="signupSection">
-            <Fade duration={2000} left>
+            
                 <form className="signupForm" name="signupform" onSubmit={handleSubmit(onSubmit)}>
-                    <h2>CONTACTO</h2>
-                    { (!isSubmitting&&!isSubmitted) && (<ul className="noBullet">
-    <li>
+                { (!isSubmitting&&!isSubmitted) && (
+                <Fade duration={2000} left><h2>CONTACTO</h2>
+                    <ul className="noBullet">
+                         <li>
                             <label htmlFor="name"></label>
                             <input
                                 {...register('name',
@@ -111,20 +113,23 @@ export default function UserForm() {
                         <li id="center-btn">
                             <input type="submit" id="join-btn" name="join" alt="Join" value="ENVIAR" />
                         </li>
-                    </ul>)}
+                    </ul>
+                    </Fade>
+                    )}
                     {isSubmitting && (
-                        <CircularProgress size ="10rem" color="success" />
-
+                        <Zoom>
+                        <CircularProgress size ="10rem" color= "success" />
+                        <h2>ENVIANDO...</h2>
+                        </Zoom>
                     ) }
-                     {isSubmitSuccessful && (<div>salio todo bien</div>)}
+                     {isSubmitSuccessful && (
+                     <Fade duration={2000} left>
+                         <h2>YA RECIBIMOS TU MENSAJE!</h2>
+                    </Fade>
+                    )}
                     
-                    
-                    
-                    
-                    
-                  
                 </form>
-            </Fade>
+           
             <style jsx>{`
 
 
