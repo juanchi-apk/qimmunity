@@ -2,13 +2,14 @@
 import Fade from 'react-reveal/Fade';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import React from 'react';
 
 
 
 
 export default function UserForm() {
 
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, watch, formState: { errors , isSubmitted,  isSubmitSuccessful}, reset } = useForm();
     const onSubmit = async (data) => {
         let configPost = {
             method:"post",
@@ -30,13 +31,12 @@ export default function UserForm() {
   
     };
 
-
     return (
-        <div className="signupSection">
+    <div className="signupSection">
             <Fade duration={2000} left>
                 <form className="signupForm" name="signupform" onSubmit={handleSubmit(onSubmit)}>
                     <h2>CONTACTO</h2>
-                    <ul className="noBullet">
+                    {!isSubmitted && (<ul className="noBullet">
                         <li>
                             <label htmlFor="name"></label>
                             <input
@@ -109,7 +109,8 @@ export default function UserForm() {
                         <li id="center-btn">
                             <input type="submit" id="join-btn" name="join" alt="Join" value="ENVIAR" />
                         </li>
-                    </ul>
+                    </ul>)}
+                    {isSubmitSuccessful && (<div>salio todo bien</div>) }
                 </form>
             </Fade>
             <style jsx>{`
