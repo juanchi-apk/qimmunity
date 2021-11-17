@@ -39,7 +39,7 @@ export default function ServiceParallax({services}){
                     return(
                         <ServiceItem title = {item.itemTitle} text = {item.itemtext} />
                     )
-                   console.log(item)
+
                 })}     
                 </div>           
                 <h2 className = "service_parallax_cta">{services.BoxCta}</h2>

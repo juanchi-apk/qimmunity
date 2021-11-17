@@ -23,12 +23,14 @@ export default function SocialMedia({banners, mediareasonitems, reasonCTA, title
 }
 
 export async function getServerSideProps(context){
-    console.log(context)
+  
     const querykey = await context.resolvedUrl.slice(2,-1);
-    console.log(querykey)
+    
     const prodpages = await fetchStrapi("/prodpages");
+    console.log(querykey) 
+    console.log(prodpages)
     const seosempage = prodpages.filter( prodpage =>prodpage.title==querykey)
-
+    console.log(seosempage)
     return{
 
     props:{

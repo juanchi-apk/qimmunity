@@ -6,7 +6,6 @@ import ProdParallax from '../fragments/ProdParallax';
 
 
 export default function HomeDesktop({home, bannerImages, prodCards}){
-    console.log(prodCards)
     return (
         <>
         <BannerDesktop banner={home.home_carousel} bannerImages={bannerImages} />

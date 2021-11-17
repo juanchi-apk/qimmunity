@@ -28,17 +28,21 @@ export async function getServerSideProps(){
   const home = await fetchStrapi("/home");
 
   const images = home.home_carousel[0].banner_image;
-console.log(images)
+
   const bannerImages = images.map(image=> getStrapiMedia(image));
-  const prodCardItems = await fetchStrapi("/product-cards");
+  const prodpages = await fetchStrapi("/prodpages") 
+  
+  const prodcardItems_second = prodpages.map(element => {
+    return element.ProdCardhome
+  })
 
 
     return{
     props:{
       home, 
       bannerImages, 
-      prodCards : prodCardItems[0].Product
-      
+      prodCards : prodcardItems_second
+       
     },
     
  };

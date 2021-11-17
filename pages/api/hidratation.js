@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function getStrapi (path=""){
-    return `https://qimmunityback.herokuapp.com${path}`
+    return ( `${"http://localhost:1337" || "https://qimmunityback.herokuapp.com"}${path}`)
 }
 
 export async function fetchStrapi (path){

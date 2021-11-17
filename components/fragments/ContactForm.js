@@ -37,7 +37,7 @@ export default function UserForm() {
                 <form className="signupForm" name="signupform" onSubmit={handleSubmit(onSubmit)}>
                     <h2>CONTACTO</h2>
                     {!isSubmitted && (<ul className="noBullet">
-                        <li>
+    <li>
                             <label htmlFor="name"></label>
                             <input
                                 {...register('name',
@@ -110,7 +110,13 @@ export default function UserForm() {
                             <input type="submit" id="join-btn" name="join" alt="Join" value="ENVIAR" />
                         </li>
                     </ul>)}
-                    {isSubmitSuccessful && (<div>salio todo bien</div>) }
+                    {/* {isSubmitSuccessful && ( */}
+                    
+                    <div>salio todo bien</div>
+                    
+                    
+                    
+                    {/* ) } */}
                 </form>
             </Fade>
             <style jsx>{`
