@@ -32,7 +32,7 @@ console.log(categories)
                         return(
                         
                         <Link href={`/blog/categories/${category.name}`}>
-                            <a>{category.name.toUpperCase()}</a>
+                            <a>{category.name}</a>
                         </Link>
                         
                         )
@@ -43,7 +43,7 @@ console.log(categories)
 
             <div className="mainArticle">
                 <div className="postContainer">
-                    <p className="catTitle">{"Bienvenido a nuestro blog".toUpperCase()}</p>
+                    <p className="catTitle">{"Bienvenido a nuestro blog"}</p>
                     <h1>{postlist[0].title}</h1>
                   
                     <Image layout="responsive" width="90vw" height="50vw" src={postImages[0]} />
@@ -67,7 +67,7 @@ console.log(categories)
                  <Link href={`blog/post/${post.title}`}>
                 <a>  
                  <div>
-                 <p>{post.categorias.name.toUpperCase()}</p>
+                 <p>{post.categorias.name}</p>
                  <h1>{post.title}</h1>
                  <p>{post.subtitle}</p>
                  </div>
