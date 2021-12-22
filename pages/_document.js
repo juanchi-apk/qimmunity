@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
         <Head>
         <title>Qimmunity Marketing Dev</title>
         <meta name="description" content=" Armamos tu páginas Web o Landing Page – Especialistas en Marketing para profesionales, emprendedores, y empresas. Implementacion de Ecommerce, Desarrollo de tienda Virtual, aplicaciones moviles." />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap"/>
         <link rel="icon" href="/favicon.ico" />
         </Head>
         
@@ -18,10 +19,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap');
-        
-        `}</style>
+     
       </Html>
     );
   }

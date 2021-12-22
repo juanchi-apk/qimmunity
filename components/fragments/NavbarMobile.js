@@ -120,26 +120,17 @@ export default function NavbarMovile({navbar}) {
             </ListItem>
           )
         })}
-          <ListItem button key="DATITA">
-          <NextLink href="/datita">
+          <ListItem button key="BLOG">
+          <NextLink href="/blog">
           <Muilink>
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
-          <ListItemText primary="DATITA" />
+          <ListItemText primary="BLOG" />
           </Muilink>
           </NextLink>
         </ListItem>
-         <ListItem button key="TENDENCIAS">
-         <NextLink href="/tendencias">
-         <Muilink>
-         <ListItemIcon>
-           <MailIcon />
-         </ListItemIcon>
-         <ListItemText primary="TENDENCIAS"/>
-         </Muilink>
-         </NextLink>
-       </ListItem>
+         
           
         </List>
        
