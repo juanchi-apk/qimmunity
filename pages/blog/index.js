@@ -32,7 +32,7 @@ export default function BlogHome({ postlist, postImages, categories }) {
                         return(
                         
                         <Link href={`/blog/categories/${category.name}`}>
-                            <a>{category.name}</a>
+                            <a>{category.name.toUpperCase()}</a>
                         </Link>
                         
                         )
@@ -64,10 +64,10 @@ export default function BlogHome({ postlist, postImages, categories }) {
              <div className ="postItem"  key={post.id}>
                 
                  <Image layout="responsive" width="100 px" height="75 px" src={postImages[index]} />
-                 <Link href={`blog/post/${post.title}`}>
+                 <Link href={`blog/post/${post.id}`}>
                 <a>  
                  <div>
-                 <p>{post.categorias.name}</p>
+                 <p>{post.categorias.name.toUpperCase()}</p>
                  <h1>{post.title}</h1>
                  <p>{post.subtitle}</p>
                  </div>
@@ -176,7 +176,7 @@ export async function getServerSideProps() {
 
     const postlist = await fetchStrapi("/postlists?_sort=created_at:DESC");
     const categories = await fetchStrapi("/categorias");
-   console.log(categories);    
+    
     const postImages = postlist.map(post => {
         let newpost = getStrapiMedia(post.postImage)
         return newpost

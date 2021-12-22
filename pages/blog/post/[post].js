@@ -67,7 +67,7 @@ export default function PostSelected({ postlist, postImages, categories , mainPo
              <div className ="postItem"  key={post.id}>
                  
                  <Image layout="responsive" width="100 px" height="75 px" src={postImages[index]} />
-                 <Link href={`/blog/post/${post.title}`}>
+                 <Link href={`/blog/post/${post.id}`}>
                  <a>   
                  <div>
            
@@ -178,12 +178,13 @@ export default function PostSelected({ postlist, postImages, categories , mainPo
 
 
 export async function getServerSideProps(context) {
-
-   
+    const queryid= parseInt(context.query.post);   
     const postlist = await fetchStrapi("/postlists?_sort=created_at:DESC");
     const categories = await fetchStrapi("/categorias");
+
     const mainPost = await postlist.filter( post =>(
-        post.title.toLowerCase()===context.query.post.toLowerCase()
+        
+        post.id===queryid
     ))
 
     const mainImage = getStrapiMedia(mainPost[0].postImage)
@@ -193,7 +194,6 @@ export async function getServerSideProps(context) {
         return newpost
     })
 
-   console.log(mainImage)
 
     return ({
         props: {

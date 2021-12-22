@@ -35,7 +35,7 @@ export default function CategoryPost({ catpostlist, catpostImages, allpostlist, 
             {
                 catpostlist.map((post, index) => {
                     return (
-                        <Link href={`/blog/post/${post.title}`} replace>
+                        <Link href={`/blog/post/${post.id}`} replace>
                         <div className="singlePost" key={post.id}>
                             
                             <Image layout="responsive" width="100 px" height="75 px" src={catpostImages[index]} />
@@ -53,7 +53,7 @@ export default function CategoryPost({ catpostlist, catpostImages, allpostlist, 
             {allpostlist.map((post, index)=>{
              return(
            
-                <Link href={`/blog/post/${post.title}`}replace >
+                <Link href={`/blog/post/${post.id}`}replace >
                     <div className ="postItem"  key={post.id}>
                 
                     
