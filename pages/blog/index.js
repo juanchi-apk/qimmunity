@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 
 export default function BlogHome({ postlist, postImages, categories }) {
-console.log(categories)
+
     const settings = {
         dots: true,
         infinite: true,
@@ -57,7 +57,7 @@ console.log(categories)
             <div className="postCarrousel">
             <Slider {...settings}>
           {postlist.map((post, index)=>{
-              console.log(postImages[index])
+     
              return(
            
                 
@@ -176,7 +176,7 @@ export async function getServerSideProps() {
 
     const postlist = await fetchStrapi("/postlists?_sort=created_at:DESC");
     const categories = await fetchStrapi("/categorias");
-    
+   console.log(categories);    
     const postImages = postlist.map(post => {
         let newpost = getStrapiMedia(post.postImage)
         return newpost
