@@ -12,6 +12,8 @@ export default class MyDocument extends Document {
         <title>Qimmunity Marketing Dev</title>
         <meta name="description" content=" Armamos tu páginas Web o Landing Page – Especialistas en Marketing para profesionales, emprendedores, y empresas. Implementacion de Ecommerce, Desarrollo de tienda Virtual, aplicaciones moviles." />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap"/>
+        <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+        <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
         <link rel="icon" href="/favicon.ico" />
         </Head>
         

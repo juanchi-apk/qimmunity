@@ -3,14 +3,12 @@ import { getStrapiMedia } from "../api/images_media";
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link'
 
 
 
 export default function BlogHome({ postlist, postImages, categories }) {
-    console.log(postlist);
+console.log(categories)
     const settings = {
         dots: true,
         infinite: true,
@@ -34,7 +32,7 @@ export default function BlogHome({ postlist, postImages, categories }) {
                         return(
                         
                         <Link href={`/blog/categories/${category.name}`}>
-                            <a>{category.name}</a>
+                            <a>{category.name.toUpperCase()}</a>
                         </Link>
                         
                         )
@@ -45,7 +43,7 @@ export default function BlogHome({ postlist, postImages, categories }) {
 
             <div className="mainArticle">
                 <div className="postContainer">
-                    <p className="catTitle">{"Bienvenido a nuestro blog"}</p>
+                    <p className="catTitle">{"Bienvenido a nuestro blog".toUpperCase()}</p>
                     <h1>{postlist[0].title}</h1>
                   
                     <Image layout="responsive" width="90vw" height="50vw" src={postImages[0]} />
@@ -69,7 +67,7 @@ export default function BlogHome({ postlist, postImages, categories }) {
                  <Link href={`blog/post/${post.title}`}>
                 <a>  
                  <div>
-                 <p>{post.categorias.name}</p>
+                 <p>{post.categorias.name.toUpperCase()}</p>
                  <h1>{post.title}</h1>
                  <p>{post.subtitle}</p>
                  </div>
